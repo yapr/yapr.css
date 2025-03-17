@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yapr.css Demo</title>
+    <link rel="stylesheet" href="../dist/yapr.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>見出し H1</h1>
+        <h2>見出し H2</h2>
+        <h3>見出し H3</h3>
+        <h4>見出し H4</h4>
+        <h5>見出し H5</h5>
+        <h6>見出し H6</h6>
+        <p>これは段落です。<strong>強調</strong> や <em>斜体</em> も使えます。</p>
+        <p>リンクは <a href="#">こちら</a> です。</p>
+    </header>
+
+    <section>
+        <h2>リスト</h2>
+        <ul>
+            <li>箇条書きリスト 1</li>
+            <li>箇条書きリスト 2</li>
+            <li>箇条書きリスト 3</li>
+        </ul>
+        <ol>
+            <li>番号付きリスト 1</li>
+            <li>番号付きリスト 2</li>
+            <li>番号付きリスト 3</li>
+        </ol>
+        <dl>
+            <dt>用語</dt>
+            <dd>この用語の説明です。</dd>
+        </dl>
+    </section>
+
+    <section>
+        <h2>フォーム</h2>
+        <form>
+            <label for="text">テキスト入力</label>
+            <input type="text" id="text" placeholder="入力してください">
+
+            <label for="email">メール</label>
+            <input type="email" id="email" placeholder="example@example.com">
+
+            <label for="password">パスワード</label>
+            <input type="password" id="password" placeholder="パスワードを入力">
+
+            <label for="textarea">テキストエリア</label>
+            <textarea id="textarea" rows="4"></textarea>
+
+            <label for="select">セレクトボックス</label>
+            <select id="select">
+                <option value="1">選択肢1</option>
+                <option value="2">選択肢2</option>
+            </select>
+
+            <fieldset>
+                <legend>ラジオボタン</legend>
+                <input type="radio" id="radio1" name="radio" checked>
+                <label for="radio1">選択肢1</label>
+
+                <input type="radio" id="radio2" name="radio">
+                <label for="radio2">選択肢2</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>チェックボックス</legend>
+                <input type="checkbox" id="checkbox1" checked>
+                <label for="checkbox1">チェック1</label>
+
+                <input type="checkbox" id="checkbox2">
+                <label for="checkbox2">チェック2</label>
+            </fieldset>
+
+            <button type="submit">送信</button>
+            <button type="reset">リセット</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>テーブル</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>列1</th>
+                    <th>列2</th>
+                    <th>列3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>データ1</td>
+                    <td>データ2</td>
+                    <td>データ3</td>
+                </tr>
+                <tr>
+                    <td>データ4</td>
+                    <td>データ5</td>
+                    <td>データ6</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>コードブロック</h2>
+        <pre><code>console.log('Hello, yapr.css!');</code></pre>
+    </section>
+
+    <section>
+        <h2>埋め込み要素</h2>
+        <img src="https://via.placeholder.com/150" alt="ダミー画像">
+        <audio controls>
+            <source src="sample.mp3" type="audio/mp3">
+        </audio>
+        <video controls width="300">
+            <source src="sample.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 yapr.css</p>
+    </footer>
+
+</body>
+
+</html>
