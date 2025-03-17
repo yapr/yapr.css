@@ -1,24 +1,38 @@
 const esbuild = require('esbuild');
 
-const buildOptions = {
-    entryPoints: ['src/yapr.css'],
-    bundle: true,
-    logLevel: 'info',
-    watch: true,  // Auto-build on file changes
-};
+async function build() {
+  try {
+    const context = await esbuild.context({
+      entryPoints: ['src/yapr.css'],
+      bundle: true,
+      logLevel: 'info',
+    });
 
-// Formatted version (for development)
-esbuild.build({
-    ...buildOptions,
-    outfile: 'dist/yapr.css',
-    minify: false,
-}).catch(() => process.exit(1));
+    // Watch mode
+    await context.watch();
+    console.log('👀 Watching for changes in src/...');
 
-// Minified version (for production)
-esbuild.build({
-    ...buildOptions,
-    outfile: 'dist/yapr.min.css',
-    minify: true,
-}).catch(() => process.exit(1));
+    // Regular builds
+    await esbuild.build({
+      entryPoints: ['src/yapr.css'],
+      outfile: 'dist/yapr.css',
+      minify: false,
+      bundle: true,
+      logLevel: 'info',
+    });
 
-console.log('👀 Watching for changes in src/...');
+    await esbuild.build({
+      entryPoints: ['src/yapr.css'],
+      outfile: 'dist/yapr.min.css',
+      minify: true,
+      bundle: true,
+      logLevel: 'info',
+    });
+
+  } catch (error) {
+    console.error('Build failed:', error);
+    process.exit(1);
+  }
+}
+
+build();
