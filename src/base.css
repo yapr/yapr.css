@@ -1,0 +1,54 @@
+body {
+    background-color: var(--yapr-background);
+    color: var(--yapr-text);
+    font-family: var(--yapr-font-family);
+    font-size: var(--yapr-font-size);
+    line-height: var(--yapr-line-height);
+    margin: var(--yapr-spacing-lg);
+    padding: var(--yapr-spacing-md);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    margin-bottom: var(--yapr-spacing-sm);
+}
+
+p {
+    margin-bottom: var(--yapr-spacing-md);
+}
+
+button {
+    background: var(--yapr-primary);
+    color: white;
+    padding: var(--yapr-spacing-sm) var(--yapr-spacing-md);
+    border: none;
+    border-radius: var(--yapr-border-radius);
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+button:hover {
+    background: var(--yapr-secondary);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--yapr-spacing-md);
+}
+
+th,
+td {
+    padding: var(--yapr-spacing-sm);
+    border: 1px solid var(--yapr-border);
+}
+
+th {
+    background: var(--yapr-primary);
+    color: white;
+}

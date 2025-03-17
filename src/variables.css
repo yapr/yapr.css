@@ -1,0 +1,23 @@
+:root {
+    /* カラー設定 */
+    --yapr-primary: #007bff;
+    --yapr-secondary: #6c757d;
+    --yapr-background: #f8f9fa;
+    --yapr-text: #333;
+    --yapr-border: #ddd;
+
+    /* 余白設定 */
+    --yapr-spacing-xs: 4px;
+    --yapr-spacing-sm: 8px;
+    --yapr-spacing-md: 16px;
+    --yapr-spacing-lg: 32px;
+
+    /* フォント設定 */
+    --yapr-font-family: system-ui, sans-serif;
+    --yapr-font-size: 16px;
+    --yapr-line-height: 1.6;
+
+    /* ボーダーとシャドウ */
+    --yapr-border-radius: 5px;
+    --yapr-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
