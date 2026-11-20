@@ -4,15 +4,7 @@
   margin-inline: auto;
 }
 
-.yapr-rails #products {
-  display: grid;
-  gap: var(--yapr-spacing-md, 16px);
-}
-
-.yapr-rails #products p {
-  margin-block: 0 var(--yapr-spacing-xs, 4px);
-  overflow-wrap: anywhere;
-}
+.yapr-rails :where(p, th, td) { overflow-wrap: anywhere; }
 
 .yapr-rails form {
   display: grid;
