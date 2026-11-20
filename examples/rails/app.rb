@@ -45,7 +45,7 @@ class ProductsController < ActionController::Base
     attrs = params.require(:product).permit(:name, :price, :available)
     @product = Product.new(attrs.merge(available: ActiveModel::Type::Boolean.new.cast(attrs[:available])))
     if @product.save
-      redirect_to products_path, status: :see_other
+      redirect_to products_path(css: ("off" if params[:css] == "off")), status: :see_other
     else
       render :edit, status: 422
     end

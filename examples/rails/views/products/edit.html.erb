@@ -1,7 +1,7 @@
 <% content_for :title, "商品を編集" %>
 <h1>商品を編集</h1>
 
-<%= form_with model: @product, url: products_path, method: :patch, local: true, html: { novalidate: true } do |form| %>
+<%= form_with model: @product, url: products_path(css: ("off" if params[:css] == "off")), method: :patch, local: true, html: { novalidate: true } do |form| %>
   <% if @product.errors.any? %>
     <div class="alert alert-danger" role="alert">
       <strong>保存できませんでした。入力を確認してください。</strong>
