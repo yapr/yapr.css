@@ -1,0 +1,69 @@
+/* Opt-in styles for Rails scaffolds; keep existing element styles unchanged. */
+.yapr-rails {
+  max-inline-size: 64rem;
+  margin-inline: auto;
+}
+
+.yapr-rails #products {
+  display: grid;
+  gap: var(--yapr-spacing-md, 16px);
+}
+
+.yapr-rails #products p {
+  margin-block: 0 var(--yapr-spacing-xs, 4px);
+  overflow-wrap: anywhere;
+}
+
+.yapr-rails form {
+  display: grid;
+  gap: var(--yapr-spacing-md, 16px);
+  max-inline-size: 36rem;
+}
+
+.yapr-rails a {
+  color: var(--yapr-rails-link, #064e9b);
+  text-decoration: underline;
+}
+
+.yapr-rails label { font-weight: var(--yapr-font-weight-bold, 700); }
+
+.yapr-rails :is(input, select, textarea) { box-sizing: border-box; }
+
+.yapr-rails :is([type="checkbox"], [type="radio"]) {
+  display: inline-block;
+  inline-size: auto;
+}
+
+.yapr-rails input[type="submit"] {
+  inline-size: auto;
+  min-block-size: 2.75rem;
+  cursor: pointer;
+  border-color: currentColor;
+  font-weight: var(--yapr-font-weight-bold, 700);
+}
+
+.yapr-rails :is(a, button, input, select, textarea, .yapr-table-wrap):focus-visible {
+  outline: 2px solid var(--yapr-text, #18181b);
+  outline-offset: 2px;
+}
+
+.yapr-rails .field_with_errors :is(input, select, textarea),
+.yapr-rails [aria-invalid="true"] {
+  border: 2px solid var(--yapr-invalid, #842029);
+}
+
+.yapr-rails .yapr-table-wrap { overflow-x: auto; }
+.yapr-rails .yapr-table-wrap table { min-inline-size: 32rem; }
+.yapr-rails .yapr-table-wrap caption { text-align: start; }
+
+.yapr-rails .yapr-table-wrap thead th {
+  background: var(--yapr-text, #18181b);
+  color: var(--yapr-background, #f8f9fa);
+}
+
+.yapr-rails .yapr-table-wrap tbody th {
+  background: transparent;
+  color: inherit;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
