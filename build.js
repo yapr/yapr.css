@@ -1,38 +1,23 @@
 const esbuild = require('esbuild');
 
+const outputs = [false, true].map((minify) => ({
+  entryPoints: ['src/yapr.css'],
+  outfile: minify ? 'dist/yapr.min.css' : 'dist/yapr.css',
+  bundle: true,
+  minify,
+  logLevel: 'info',
+}));
+
 async function build() {
-  try {
-    const context = await esbuild.context({
-      entryPoints: ['src/yapr.css'],
-      bundle: true,
-      logLevel: 'info',
-    });
-
-    // Watch mode
-    await context.watch();
-    console.log('👀 Watching for changes in src/...');
-
-    // Regular builds
-    await esbuild.build({
-      entryPoints: ['src/yapr.css'],
-      outfile: 'dist/yapr.css',
-      minify: false,
-      bundle: true,
-      logLevel: 'info',
-    });
-
-    await esbuild.build({
-      entryPoints: ['src/yapr.css'],
-      outfile: 'dist/yapr.min.css',
-      minify: true,
-      bundle: true,
-      logLevel: 'info',
-    });
-
-  } catch (error) {
-    console.error('Build failed:', error);
-    process.exit(1);
+  if (!process.argv.includes('--watch')) {
+    await Promise.all(outputs.map((options) => esbuild.build(options)));
+    return;
   }
+  const contexts = await Promise.all(outputs.map((options) => esbuild.context(options)));
+  await Promise.all(contexts.map((context) => context.watch()));
 }
 
-build();
+build().catch((error) => {
+  console.error('Build failed:', error);
+  process.exitCode = 1;
+});

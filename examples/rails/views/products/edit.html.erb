@@ -1,0 +1,28 @@
+<% content_for :title, "商品を編集" %>
+<h1>商品を編集</h1>
+
+<%= form_with model: @product, url: products_path(css: ("off" if params[:css] == "off")), method: :patch, local: true, html: { novalidate: true } do |form| %>
+  <% if @product.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <strong>保存できませんでした。入力を確認してください。</strong>
+      <ul>
+        <% { name: "商品名を入力してください。", price: "価格を0以上の整数で入力してください。" }.each do |field, message| %>
+          <% if @product.errors[field].any? %>
+            <li id="<%= field %>-error"><a href="#product_<%= field %>"><%= message %></a></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :name, "商品名" %>
+    <%= form.text_field :name, required: true, aria: (@product.errors[:name].any? ? { invalid: true, describedby: "name-error" } : {}) %>
+  </div>
+  <div>
+    <%= form.label :price, "価格（円）" %>
+    <%= form.number_field :price, required: true, min: 0, aria: (@product.errors[:price].any? ? { invalid: true, describedby: "price-error" } : {}) %>
+  </div>
+  <div><%= form.check_box :available %> <%= form.label :available, "取り扱う" %></div>
+  <div><%= form.submit "保存" %></div>
+<% end %>
+<p><%= link_to "一覧へ戻る", products_path %></p>

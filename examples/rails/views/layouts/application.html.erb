@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= content_for(:title) %> | yapr.css</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "/yapr.css" unless params[:css] == "off" %>
+  </head>
+  <body>
+    <main class="yapr-rails">
+      <% if request.get? %>
+        <% query = {} %>
+        <% query[:layout] = "table" if params[:layout] == "table" %>
+        <% query[:css] = "off" unless params[:css] == "off" %>
+        <% comparison = [request.path, Rack::Utils.build_query(query).presence].compact.join("?") %>
+        <p><%= link_to(params[:css] == "off" ? "CSSを適用して比較" : "CSSなしで比較", comparison) %></p>
+      <% end %>
+      <%= yield %>
+    </main>
+  </body>
+</html>
